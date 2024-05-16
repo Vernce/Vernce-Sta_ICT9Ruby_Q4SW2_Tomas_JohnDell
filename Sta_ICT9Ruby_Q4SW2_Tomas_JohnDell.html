@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        .container {
+            background-color: #ffffff; /* White background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+        }
+        h1, p {
+            color: #343a40; /* Dark gray text */
+        }
+        .form-control {
+            background-color: #f1f3f5; /* Lighter gray input background */
+            border: 1px solid #ced4da; /* Gray border */
+        }
+        .btn-primary {
+            background-color: #007bff; /* Blue button */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .result {
+            margin-top: 20px;
+            color: #343a40; /* Dark gray text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Calculator</h1>
+        <p class="text-center">Enter two numbers to perform calculations using JavaScript.</p>
+        <form>
+            <div class="form-group">
+                <label for="num1">Number 1:</label>
+                <input type="number" id="num1" class="form-control" placeholder="Enter first number">
+            </div>
+            <div class="form-group">
+                <label for="num2">Number 2:</label>
+                <input type="number" id="num2" class="form-control" placeholder="Enter second number">
+            </div>
+            <button type="button" class="btn btn-primary btn-block" onclick="performCalculations()">Calculate</button>
+        </form>
+        <div id="output" class="result"></div>
+    </div>
+
+    <script>
+        function performCalculations() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var sum = num1 + num2;
+            var difference = num1 - num2;
+            var product = num1 * num2;
+            var quotient = num1 / num2;
+            var output = `
+                <h3>Results:</h3>
+                <p>Sum: ${sum}</p>
+                <p>Difference: ${difference}</p>
+                <p>Product: ${product}</p>
+                <p>Quotient: ${quotient}</p>
+            `;
+            document.getElementById('output').innerHTML = output;
+        }
+    </script>
+</body>
+</html>
